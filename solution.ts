@@ -34,6 +34,9 @@ class Person {
 function filterByRating(
   arr: { title: string; rating: number }[]
 ): { title: string; rating: number }[] {
+  if(!Array.isArray(arr)){
+    throw new Error("Input must be an array");
+  }
   arr.forEach((item) => {
     if (item.rating < 0 || item.rating > 5) {
       throw new Error("Rating must be between 0 to 5");
@@ -45,6 +48,9 @@ function filterByRating(
 function filterActiveUsers(
   users: { id: number; name: string; email: string; isActive: boolean }[]
 ): { id: number; name: string; email: string; isActive: boolean }[] {
+  if(!Array.isArray(users)){
+    throw new Error("Input must be an array");
+  }
   return users.filter((user) => user.isActive === true);
 }
 
