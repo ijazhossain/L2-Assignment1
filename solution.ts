@@ -31,14 +31,19 @@ class Person {
   }
 }
 
-function filterByRating(arr: { title: string; rating: number }[]) {
+function filterByRating(
+  arr: { title: string; rating: number }[]
+): { title: string; rating: number }[] {
   arr.forEach((item) => {
     if (item.rating < 0 || item.rating > 5) {
       throw new Error("Rating must be between 0 to 5");
-      
     }
   });
-  return arr.filter((item) => item.rating >= 4 );
+  return arr.filter((item) => item.rating >= 4);
 }
 
-
+function filterActiveUsers(
+  users: { id: number; name: string; email: string; isActive: boolean }[]
+): { id: number; name: string; email: string; isActive: boolean }[]{
+  return users.filter((user) => user.isActive === true);
+}
