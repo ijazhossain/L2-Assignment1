@@ -9,3 +9,12 @@ function formatValue(
     return !value;
   }
 }
+
+function getLength(value:string|unknown[]):number{
+if(typeof value === 'string'){
+return value.length;
+}else if(Array.isArray(value)){
+return value.length;
+}
+return 0;
+}
