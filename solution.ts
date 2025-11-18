@@ -44,6 +44,21 @@ function filterByRating(
 
 function filterActiveUsers(
   users: { id: number; name: string; email: string; isActive: boolean }[]
-): { id: number; name: string; email: string; isActive: boolean }[]{
+): { id: number; name: string; email: string; isActive: boolean }[] {
   return users.filter((user) => user.isActive === true);
 }
+
+interface Book {
+  title: string;
+  author: string;
+  publishedYear: number;
+  isAvailable: boolean;
+}
+function printBookDetails(book: Book) {
+  console.log(
+    `Title: ${book?.title}, Author: ${book?.author}, Published: ${
+      book?.publishedYear
+    }, Available: ${book?.isAvailable ? "Yes" : "No"}`
+  );
+}
+
