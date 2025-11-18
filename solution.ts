@@ -62,3 +62,25 @@ function printBookDetails(book: Book) {
   );
 }
 
+function getUniqueValues(arr1: number[], arr2: number[]) {
+  let newArray: number[] = [];
+  function isElementExists(arr: number[], value: number) {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === value) {
+        return true;
+      }
+    }
+    return false;
+  }
+  for (let i = 0; i < arr1.length; i++) {
+    if (!isElementExists(newArray, arr1[i])) {
+      newArray.push(arr1[i]);
+    }
+  }
+  for (let j = 0; j < arr2.length; j++) {
+    if (!isElementExists(newArray, arr2[j])) {
+      newArray.push(arr2[j]);
+    }
+  }
+  return newArray;
+}
