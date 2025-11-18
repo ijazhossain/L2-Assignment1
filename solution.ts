@@ -84,3 +84,37 @@ function getUniqueValues(arr1: number[], arr2: number[]) {
   }
   return newArray;
 }
+
+function calculateTotalPrice(
+  products: {
+    name: string;
+    price: number;
+    quantity: number;
+    discount?: number;
+  }[]
+): number {
+  if(!Array.isArray(products)){
+    throw new Error("Input must be an array");
+  }
+ 
+  return products.map(
+    (product: {
+      name: string;
+      price: number;
+      quantity: number;
+      discount?: number ;
+    }) => {
+      if (product.discount !== undefined) {
+        if (product.discount < 0 || product.discount > 100) {
+          throw new Error("Discount must be between 0 and 100 percent");
+        }
+      }
+      const singleProductPrice = product.discount
+        ? product.price * product.quantity * (1 - product.discount / 100)
+        : product.price * product.quantity;
+
+      return singleProductPrice;
+    }
+  ).reduce((sum,price)=>sum+price,0);
+  
+}
