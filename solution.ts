@@ -30,3 +30,15 @@ class Person {
     return `'Name: ${this.name}, Age: ${this.age}'`;
   }
 }
+
+function filterByRating(arr: { title: string; rating: number }[]) {
+  arr.forEach((item) => {
+    if (item.rating < 0 || item.rating > 5) {
+      throw new Error("Rating must be between 0 to 5");
+      
+    }
+  });
+  return arr.filter((item) => item.rating >= 4 );
+}
+
+
