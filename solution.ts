@@ -10,11 +10,23 @@ function formatValue(
   }
 }
 
-function getLength(value:string|unknown[]):number{
-if(typeof value === 'string'){
-return value.length;
-}else if(Array.isArray(value)){
-return value.length;
+function getLength(value: string | unknown[]): number {
+  if (typeof value === "string") {
+    return value.length;
+  } else if (Array.isArray(value)) {
+    return value.length;
+  }
+  return 0;
 }
-return 0;
+
+class Person {
+  name: string;
+  age: number;
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+  getDetails(): string {
+    return `'Name: ${this.name}, Age: ${this.age}'`;
+  }
 }
